@@ -195,29 +195,3 @@ PRIVATE_TOKEN
 ## Project Status
 
 * In production
-
-## Information
-
-* Variável é um valor que podemos alterar e que antes demos um nome.
-
-### O método gets
-
-Falamos muito sobre capturar e armazenar as entradas de um usuário no terminal e usá-las em nosso programa Ruby. Agora, veremos mais de perto exatamente como isso acontece.
-
-```ruby
-puts "Please... pass your name:"
-name = gets.strip
-greeting(name)
-```
-
-Sempre que seu programa fizer uma chamada gets, ele irá congelar e aguardar a entrada do usuário.
-
-O valor de retorno gets é o texto digitado no terminal. Portanto, definir uma variável name = gets é define uma variável igual ao valor de retorno de gets –– a última coisa digitada no terminal. Em seguida, a linha a seguir usa essa variável na interpolação de seqüência de caracteres.
-
-Uma coisa a saber sobre o #gets método é que ele captura um novo caractere de linha no final de qualquer entrada que esteja armazenando. Não queremos que espaços em branco extras ou novas linhas sejam anexadas à entrada do usuário que estamos tentando armazenar. Portanto, podemos encadear uma chamada para o #stripmétodo para remover novas linhas ou espaços em branco à esquerda e à direita.
-
-O #chomp método funciona de maneira semelhante e é provável que você seja #gets.chomp usado em alguns exemplos online. O #chomp método remove quaisquer novas linhas no final de uma seqüência de caracteres, enquanto o #strip método remove os espaços em branco (à esquerda e à direita) e as novas linhas.
-
-### O método puts
-
-Como os métodos put e print realmente produzem texto no seu console? Eles usam a variável global $stdout fornecida pelo Ruby.
