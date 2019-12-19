@@ -1,1 +1,1 @@
-scripts/*.sh linguist-documentation=false
+* linguist-language=Ruby
