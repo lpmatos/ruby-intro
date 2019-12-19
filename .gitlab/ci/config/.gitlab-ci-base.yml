@@ -1,0 +1,69 @@
+# =============================================================================
+# TEMPLATE DEFAULT TAGS
+# =============================================================================
+
+.default-tags: &default-tags
+  tags:
+    - kubernetes
+
+# =============================================================================
+# TEMPLATE DEFAULT RETRY
+# =============================================================================
+
+.default-retry: &default-retry
+  <<: *default-tags
+  retry:
+    max: 2 # This is confusing but this means "3 runs at max".
+    when:
+      - unknown_failure
+      - api_failure
+      - runner_system_failure
+
+# =============================================================================
+# TEMPLATE CHANGES
+# =============================================================================
+
+# APP
+
+.changes-app:
+  <<: *default-retry
+  only:
+    changes:
+      - "app/*"
+      - "app/**/*"
+      - "app/code/**/*"
+      - "app/Dockerfile"
+      - "CHANGELOG.md"
+
+# MERGE
+
+.changes-merge:
+  <<: *default-retry
+  only:
+    changes:
+      - "app/*"
+      - "app/**/*"
+      - "app/code/**/*"
+      - "app/Dockerfile"
+      - "CHANGELOG.md"
+
+# LINT YML
+
+.changes-lint-yml:
+  <<: *default-retry
+  only:
+    changes:
+      - "**/*.{yml, yaml}"
+      - "*.{yml, yaml}"
+    refs:
+      - master
+      - merge_requests
+      - tags
+
+# LINT DOCS
+
+.changes-lint-docs:
+  <<: *default-retry
+  except:
+    - master
+    - stage

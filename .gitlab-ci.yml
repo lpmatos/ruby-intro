@@ -1,0 +1,61 @@
+# =============================================================================
+# DEFAULT IMAGE
+# =============================================================================
+
+image: docker:19.03.1
+
+# =============================================================================
+# SERVICES
+# =============================================================================
+
+services:
+  - docker:19.03.1-dind
+
+# =============================================================================
+# STAGES
+# =============================================================================
+
+stages: [ review, build, scanning, deploy, merge ]
+
+# =============================================================================
+# GLOBAL VARIABLES
+# =============================================================================
+
+variables:
+
+  DOCKER_HOST: tcp://localhost:2375
+  DOCKER_TLS_CERTDIR: ""
+  DOCKER_DRIVER: overlay2
+  DOCKER_BUILDKIT: 1
+
+  GIT_DEPTH: 1
+  GIT_SUBMODULE_STRATEGY: none
+
+# =============================================================================
+# INCLUDE ALL TEMPLATES
+# =============================================================================
+
+include:
+
+  # Env: Config
+  - local: ".gitlab/ci/config/.gitlab-ci-base.yml"
+  - local: ".gitlab/ci/config/.gitlab-ci-lint.yml"
+  - local: ".gitlab/ci/config/.gitlab-ci-merge.yml"
+
+  # Env: Master
+  - local: ".gitlab/ci/master/.gitlab-ci-audit.yml"
+  - local: ".gitlab/ci/master/.gitlab-ci-build.yml"
+  - local: ".gitlab/ci/master/.gitlab-ci-scanning.yml"
+
+  # Env: Stage
+  - local: ".gitlab/ci/stage/.gitlab-ci-audit.yml"
+  - local: ".gitlab/ci/stage/.gitlab-ci-build.yml"
+  - local: ".gitlab/ci/stage/.gitlab-ci-scanning.yml"
+
+  # Env: Develop
+  - local: ".gitlab/ci/develop/.gitlab-ci-audit.yml"
+  - local: ".gitlab/ci/develop/.gitlab-ci-build.yml"
+  - local: ".gitlab/ci/develop/.gitlab-ci-scanning.yml"
+
+  # Env: Merge
+  - local: ".gitlab/ci/merge/.gitlab-ci-audit.yml"

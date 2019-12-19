@@ -1,0 +1,43 @@
+# =============================================================================
+# TEMPLATE BASE BUILD
+# =============================================================================
+
+.base-build: &base-build
+  extends: .changes-lint-yml
+  image: sdesbure/yamllint:latest
+  allow_failure: true
+  stage: review
+  variables:
+    GIT_STRATEGY: fetch
+  artifacts:
+    name: "${CI_JOB_NAME}-${CI_COMMIT_REF_NAME}"
+    paths: ["lint.txt"]
+    when: on_success
+    expire_in: "15 day"
+
+# =============================================================================
+# JOB YML LINT
+# =============================================================================
+
+# YML
+
+job:lint-yml:
+  <<: *base-build
+  script:
+    - yamllint .gitlab-ci.yml pipeline || true
+    - yamllint .gitlab-ci.yml pipeline > lint.txt || true
+
+# DOCS
+
+job:lint-docs:
+  extends: .changes-lint-docs
+  image: registry.gitlab.com/gitlab-org/gitlab-build-images:gitlab-docs-lint
+  allow_failure: false
+  stage: review
+  variables:
+    GIT_STRATEGY: fetch
+  before_script:
+    - apk add --update --no-cache bash
+    - chmod a+x ./scripts/lint-docs.sh
+  script:
+    - ./scripts/lint-docs.sh

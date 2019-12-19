@@ -1,0 +1,39 @@
+# =============================================================================
+# LOCAL VARIABLES
+# =============================================================================
+
+.base-variables: &base-variables
+  BRANCH: stage
+  GIT_STRATEGY: fetch
+  BUILD_IMAGE_TAG: ${CI_REGISTRY_IMAGE}/${NS}:${BRANCH}
+  BUILD_IMAGE_TAG_HASH: ${CI_REGISTRY_IMAGE}/${NS}:${CI_COMMIT_SHA}
+  BUILD_DOCKERFILE: ${NS}/Dockerfile
+  BUILD_CONTEXT: ${NS}/
+
+# =============================================================================
+# TEMPLATE BASE BUILD
+# =============================================================================
+
+.base-build: &base-build
+  allow_failure: false
+  stage: build
+  before_script:
+    - apk add --update --no-cache bash && chmod a+x ./scripts/build.sh
+  only:
+    refs:
+      - stage
+
+# =============================================================================
+# JOB BUILD
+# =============================================================================
+
+# APP
+
+job:build-app-stage:
+  <<: *base-build
+  extends: .changes-app
+  variables:
+    NS: app
+    <<: *base-variables
+  script:
+    - ./scripts/build.sh

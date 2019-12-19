@@ -1,0 +1,34 @@
+# =============================================================================
+# TEMPLATE BASE AUDIT
+# =============================================================================
+
+.base-build: &base-build
+  image: alpine:3.10
+  extends: .default-retry
+  allow_failure: false
+  stage: review
+  before_script:
+    - apk add --update --no-cache git bash
+    - git clone --depth 1 https://github.com/CISOfy/lynis -b master
+    - chmod a+x ./scripts/verify.sh && cd ./lynis
+
+# =============================================================================
+# JOB AUDIT
+# =============================================================================
+
+# APP
+
+job:audit-app-stage:
+  <<: *base-build
+  variables:
+    NS: app
+    PATH_DOCKERFILE_APP: ${NS}/Dockerfile
+    GIT_STRATEGY: fetch
+  script:
+    - ./lynis audit dockerfile ../${PATH_DOCKERFILE_APP} --verbose && cd ..
+    - ./scripts/verify.sh -f /var/log/lynis.log
+  only:
+    refs:
+      - stage
+    changes:
+      - "app/Dockerfile"
