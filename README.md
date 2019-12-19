@@ -92,6 +92,12 @@ docker container run -it --rm --name <CONTAINER_NAME> -p <LOCAL_PORT:CONTAINER_P
 
 ### Basic Commands
 
+* Windows
+
+```
+winpty docker.exe run -it --rm <IMAGE_NAME> <COMMAND>
+```
+
 * Showing all local images:
 
 ```

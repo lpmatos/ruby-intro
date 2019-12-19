@@ -18,4 +18,4 @@ COPY [ "./code", "." ]
 
 ENTRYPOINT []
 
-CMD [ "ruby", "hello.rb" ]
+CMD [ "sh" ]
