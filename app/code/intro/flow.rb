@@ -1,3 +1,5 @@
+ #!/usr/bin/env ruby
+
 # Exibindo uma mensagem com a palavra reservada puts.
 
 puts "Boa tarde! Qual o seu nome?"

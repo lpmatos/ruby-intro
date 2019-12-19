@@ -1,3 +1,5 @@
+ #!/usr/bin/env ruby
+
 # Concanetação de Strings em Ruby
 
 puts "Aqui vamos ensinar como concatenar strings em Ruby."
