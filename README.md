@@ -222,11 +222,11 @@ Na maioria das linguagens ele aparece com o símbolo ```!=```.
 
 **Operador Nome** | **Operador Símbolo**
 :---: | :---:
-**Maior que** | ```!=```
-**Menor que** | ```!=```
-**Maior ou igual** | ```!=```
-**Menor ou igual** | ```!=```
-**Igualdade** | ```!=```
+**Maior que** | ```>```
+**Menor que** | ```<```
+**Maior ou igual** | ```>=```
+**Menor ou igual** | ```<=```
+**Igualdade** | ```==```
 **Diferente** | ```!=```
 
 ### Ruby
