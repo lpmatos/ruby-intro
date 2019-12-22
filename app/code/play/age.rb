@@ -61,6 +61,10 @@ if choices.include?(personalizacao)
         puts "Maior de idade: #{(idade >= 18 ? "Sim": "Não")}"
         puts "Classe da idade: #{idade.class}"
 
+        puts "\nTamanho array escolhas: #{choices.length}"
+        puts "Primeiro elemento: #{choices.first}"
+        puts "Último elemento: #{choices.last}"
+
         puts "\nFinalizando o fluxo...\n"
 
     # Caso contrário
