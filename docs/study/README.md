@@ -1,4 +1,6 @@
-# Conceitos
+# Conceito
+
+Escrever um programa é você dizer para o computador o que ele tem que fazer.
 
 ## Operador de atribuição
 
@@ -33,8 +35,26 @@ Na maioria das linguagens ele aparece com o símbolo ```!=```.
 
 ## Ruby
 
-* A função puts pode ser utilizada com a palavra puts ou a abreviação p.
+* A função **puts** pode ser utilizada para exibir uma mensagem na tela. Ela pode ser utilizada com a abreviação **p**.
 
-* Para sabermos a classe que pertence um tipo podemos utilizar o método class
+* Para pegarmos um a informação existem diversas abordagens. A mais comum é pegar do terminal. Para isso podemos utilizar a função **gets**.
 
-* Se queremos declarar um dicionário, então devemos declarar um hash. Um hash é declarado utilizando chaves e utilizando uma notação { :chave => valor }
+* Conseguimos concatenar string de uma forma bem simples em **Ruby**. Basta utilizarmos o sinal de mais. Quando concatenamos **strings** estamos na verdade unindo **strings**.
+
+* Para sabermos a classe que pertence um tipo de dado em **Ruby**, podemos utilizar o método **class**.
+
+* Se queremos declarar um dicionário, então devemos declarar um **hash**. Um **hash** é declarado utilizando chaves e utilizando uma notação ```{ :chave => valor }```
+
+* Naturalmente um valor pego pela função gets vem no tipo string.
+
+* A comparação de igualdade não compara só o valor interno, mas também o tipo.
+
+* A saída padrão de um programa ruby é para o console (terminal).
+
+* O **puts** é uma função que eu invoco, é alguém que eu chamo que faz alguma coisa.
+
+* Quando nós invocamos uma função, ela pode receber N parâmetros.
+
+* Assim como uma função pode receber um parâmetro, ela também devolve alguma coisa.
+
+* No **Ruby**, aliás, toda função devolve alguma coisa
