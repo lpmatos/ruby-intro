@@ -83,3 +83,4 @@ Na maioria das linguagens ele aparece com o símbolo ```!=```.
 
 * O processo de extrair uma função e invocá-la é o processo de extrair um trecho de código, de isolar um comportamento.
 
+* Quando executamos uma função, por padrão, todas as variáveis executadas dentro dela não são acessadas pelo contexto de fora.
