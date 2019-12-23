@@ -58,3 +58,28 @@ Na maioria das linguagens ele aparece com o símbolo ```!=```.
 * Assim como uma função pode receber um parâmetro, ela também devolve alguma coisa.
 
 * No **Ruby**, aliás, toda função devolve alguma coisa
+
+* O **Ruby** sabe conversar com a nossa máquina. Eu só sei conversar com o **Ruby**. O **Ruby** traduz os nossos comandos para que a máquina seja capaz de executá-los.
+
+* Então o **Ruby** é um interpretador. Nós escrevemos o nosso código **Ruby** e tem alguém, isso é, o interpretador do **Ruby**, interpretando o nosso código.
+
+* Uma outra maneira de rodar seria eu pegar esse código e traduzi-lo para um arquivo que já está no código daquela máquina específica, daquela arquitetura específica. Isso é o que nós chamamos de compilador. O compilador também interpreta, mas o faz em tempo de compilação e compila em um outro arquivo maluco. Esse outro arquivo maluco é a língua da máquina.
+
+* o **Ruby** que é uma linguagem interpretada.
+
+* Se você quer executar trechos de código condicionalmente, então você deve utilizar controles de fluxos: if, else, end.
+
+* Para parar um laço podemos utilizar o break.
+
+* Execução de código condicional.
+
+* Laços de repetição - loop.
+
+* A programação imperativa tem como base a execução de laços e a execução de códigos condicionais.
+
+* Podemos declarar funções utilizando a palavra **def** e terminando com um **end**.
+
+* No **Ruby** a maioria das palavras reservadas de controle de fluxo, loop, funções... são terminadas com um **end**.
+
+* O processo de extrair uma função e invocá-la é o processo de extrair um trecho de código, de isolar um comportamento.
+
