@@ -1,0 +1,42 @@
+# =============================================================================
+# LOCAL VARIABLES
+# =============================================================================
+
+.base-variables: &base-variables
+  GIT_STRATEGY: none
+  CI_APPLICATION_REPOSITORY: ${CI_REGISTRY_IMAGE}/${NS}
+  CI_APPLICATION_TAG: ${CI_COMMIT_SHA}
+
+# =============================================================================
+# TEMPLATE BASE BUILD
+# =============================================================================
+
+.base-build: &base-build
+  image: alpine:3.7
+  allow_failure: false
+  stage: deploy
+  before_script:
+    - apk add --update --no-cache curl
+    - curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
+    - chmod +x ./kubectl && mv ./kubectl /usr/local/bin/kubectl
+    - mkdir -p ${HOME}/.kube
+    - echo -n ${KUBECONFIG_CLUSTER_DEVOPS} | base64 -d > ${HOME}/.kube/config
+  only:
+    refs:
+      - stage
+
+# =============================================================================
+# JOB DEPLOY
+# =============================================================================
+
+# APP
+
+job:deploy-app-stage:
+  <<: *base-build
+  extends: .changes-app
+  variables:
+    NS: app
+    <<: *base-variables
+  script:
+    - kubectl set image deployment/${NS} ${NS}=${CI_APPLICATION_REPOSITORY}:${CI_APPLICATION_TAG} -n ${NAMESPACE_STAGE}
+    - kubectl get po -n ${NAMESPACE_STAGE}
