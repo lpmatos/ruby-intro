@@ -1,31 +1,24 @@
 # =============================================================================
-# TEMPLATE BASE BUILD
+# JOB LINT
 # =============================================================================
 
-.base-build: &base-build
+# YML
+
+job:lint-yml:
   extends: .changes-lint-yml
   image: sdesbure/yamllint:latest
   allow_failure: true
   stage: review
   variables:
     GIT_STRATEGY: fetch
+  script:
+    - yamllint .gitlab-ci.yml pipeline || true
+    - yamllint .gitlab-ci.yml pipeline > lint.txt || true
   artifacts:
     name: "${CI_JOB_NAME}-${CI_COMMIT_REF_NAME}"
     paths: ["lint.txt"]
     when: on_success
     expire_in: "15 day"
-
-# =============================================================================
-# JOB YML LINT
-# =============================================================================
-
-# YML
-
-job:lint-yml:
-  <<: *base-build
-  script:
-    - yamllint .gitlab-ci.yml pipeline || true
-    - yamllint .gitlab-ci.yml pipeline > lint.txt || true
 
 # DOCS
 

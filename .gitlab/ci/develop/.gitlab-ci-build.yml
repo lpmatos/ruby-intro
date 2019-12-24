@@ -27,13 +27,46 @@
 # JOB BUILD
 # =============================================================================
 
-# APP
+# BACKEND
 
-job:build-app-develop:
+job:build-backend-develop:
   <<: *base-build
-  extends: .changes-app
+  extends: .changes-backend
   variables:
-    NS: app
+    NS: backend
+    <<: *base-variables
+  script:
+    - ./scripts/build.sh
+
+# DATABASE
+
+job:build-database-develop:
+  <<: *base-build
+  extends: .changes-database
+  variables:
+    NS: database
+    <<: *base-variables
+  script:
+    - ./scripts/build.sh
+
+# FLYWAY
+
+job:build-flyway-develop:
+  <<: *base-build
+  extends: .changes-flyway
+  variables:
+    NS: flyway
+    <<: *base-variables
+  script:
+    - ./scripts/build.sh
+
+# FRONTEND
+
+job:build-frontend-develop:
+  <<: *base-build
+  extends: .changes-frontend
+  variables:
+    NS: frontend
     <<: *base-variables
   script:
     - ./scripts/build.sh

@@ -23,6 +23,8 @@ This will give access on your **local machine** to this project.
 * **/app** is the directory where the **app** is located and where the **Dockerfile** is called from **docker-compose**.
 * **/docs** is the directory where is the **project documentation**.
 * **/scripts** is the directory where are all the **scripts** used in **CI/CD** or in other contexts.
+* **README.md** is an optional file. A human-readable **README** file.
+* **.gitlab-ci.yml** is the file that use the templates find in **pipeline** folder.
 * The files found in the project root are support files to **CI/CD** process and others contexts.
 
 ## Description
@@ -162,6 +164,8 @@ In this project all the templates (**Jobs**) are in the **.gitlab** folder.
 
 ### GitLab Environment variables
 
+#### Kubernetes
+
 ```bash
 KUBECONFIG_CLUSTER_DEVOPS
 ```
@@ -182,6 +186,8 @@ NAMESPACE_PROD
 NAMESPACE_STAGE
 ```
 
+#### GitLab
+
 ```bash
 PRIVATE_TOKEN
 ```
@@ -192,4 +198,4 @@ PRIVATE_TOKEN
 
 ## Project Status
 
-* In production
+* Developing

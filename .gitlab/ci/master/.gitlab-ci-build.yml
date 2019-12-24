@@ -7,7 +7,6 @@
   GIT_STRATEGY: fetch
   BUILD_IMAGE_TAG: ${CI_REGISTRY_IMAGE}/${NS}:${BRANCH}
   BUILD_IMAGE_TAG_HASH: ${CI_REGISTRY_IMAGE}/${NS}:${CI_COMMIT_SHA}
-  BUILD_IMAGE_TAG_LATEST: ${CI_REGISTRY_IMAGE}/${NS}:latest
   BUILD_DOCKERFILE: ${NS}/Dockerfile
   BUILD_CONTEXT: ${NS}/
 
@@ -28,13 +27,46 @@
 # JOB BUILD
 # =============================================================================
 
-# APP
+# BACKEND
 
-job:build-app-master:
+job:build-backend-master:
   <<: *base-build
-  extends: .changes-app
+  extends: .changes-backend
   variables:
-    NS: app
+    NS: backend
+    <<: *base-variables
+  script:
+    - ./scripts/build.sh
+
+# DATABASE
+
+job:build-database-master:
+  <<: *base-build
+  extends: .changes-database
+  variables:
+    NS: database
+    <<: *base-variables
+  script:
+    - ./scripts/build.sh
+
+# FLYWAY
+
+job:build-flyway-master:
+  <<: *base-build
+  extends: .changes-flyway
+  variables:
+    NS: flyway
+    <<: *base-variables
+  script:
+    - ./scripts/build.sh
+
+# FRONTEND
+
+job:build-frontend-master:
+  <<: *base-build
+  extends: .changes-frontend
+  variables:
+    NS: frontend
     <<: *base-variables
   script:
     - ./scripts/build.sh

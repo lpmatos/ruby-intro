@@ -33,19 +33,7 @@
       - "app/**/*"
       - "app/code/**/*"
       - "app/Dockerfile"
-      - "CHANGELOG.md"
-
-# MERGE
-
-.changes-merge:
-  <<: *default-retry
-  only:
-    changes:
-      - "app/*"
-      - "app/**/*"
-      - "app/code/**/*"
-      - "app/Dockerfile"
-      - "CHANGELOG.md"
+      - "app/CHANGELOG.md"
 
 # LINT YML
 
@@ -64,6 +52,11 @@
 
 .changes-lint-docs:
   <<: *default-retry
+  only:
+    changes:
+      - "docs/*"
+      - "docs/**/*"
+      - "CHANGELOG.md"
   except:
     - master
     - stage

@@ -1,4 +1,13 @@
 # =============================================================================
+# LOCAL VARIABLES
+# =============================================================================
+
+.base-variables: &base-variables
+  GIT_STRATEGY: none
+  CI_APPLICATION_REPOSITORY: ${CI_REGISTRY_IMAGE}/${NS}
+  CI_APPLICATION_TAG: ${CI_COMMIT_SHA}
+
+# =============================================================================
 # TEMPLATE BASE BUILD
 # =============================================================================
 
@@ -17,6 +26,7 @@
     - retries=0
     - echo -e "\nWaiting for clair daemon to start.\n"
     - while( ! wget -T 10 -q -O /dev/null http://$(hostname):6060/v1/namespaces ) ; do sleep 1 ; echo -n "." ; if [ ${retries} -eq 10 ] ; then echo " Timeout, aborting." ; exit 1 ; fi ; retries=$(($retries+1)) ; done
+    - docker pull ${CI_APPLICATION_REPOSITORY}:${CI_APPLICATION_TAG}
   artifacts:
     name: "${CI_JOB_NAME}-${CI_COMMIT_REF_NAME}"
     paths: [gl-container-scanning-report.json]
@@ -30,16 +40,46 @@
 # JOB SCANNING
 # =============================================================================
 
-# APP
+# BACKEND
 
-job:scanning-app-develop:
+job:scanning-backend-develop:
   <<: *base-build
-  extends: .changes-app
+  extends: .changes-backend
   variables:
-    NS: app
-    GIT_STRATEGY: none
-    CI_APPLICATION_REPOSITORY: ${CI_REGISTRY_IMAGE}/${NS}
-    CI_APPLICATION_TAG: develop
+    NS: backend
+    <<: *base-variables
   script:
-    - docker pull ${CI_APPLICATION_REPOSITORY}:${CI_APPLICATION_TAG}
+    - ./clair-scanner -c http://$(hostname):6060 --ip $(hostname -i) -r gl-container-scanning-report.json -l clair.log -w clair-whitelist.yml ${CI_APPLICATION_REPOSITORY}:${CI_APPLICATION_TAG} || true
+
+# DATABASE
+
+job:scanning-database-develop:
+  <<: *base-build
+  extends: .changes-database
+  variables:
+    NS: database
+    <<: *base-variables
+  script:
+    - ./clair-scanner -c http://$(hostname):6060 --ip $(hostname -i) -r gl-container-scanning-report.json -l clair.log -w clair-whitelist.yml ${CI_APPLICATION_REPOSITORY}:${CI_APPLICATION_TAG} || true
+
+# FLYWAY
+
+job:scanning-flyway-develop:
+  <<: *base-build
+  extends: .changes-flyway
+  variables:
+    NS: flyway
+    <<: *base-variables
+  script:
+    - ./clair-scanner -c http://$(hostname):6060 --ip $(hostname -i) -r gl-container-scanning-report.json -l clair.log -w clair-whitelist.yml ${CI_APPLICATION_REPOSITORY}:${CI_APPLICATION_TAG} || true
+
+# FRONTEND
+
+job:scanning-frontend-develop:
+  <<: *base-build
+  extends: .changes-frontend
+  variables:
+    NS: frontend
+    <<: *base-variables
+  script:
     - ./clair-scanner -c http://$(hostname):6060 --ip $(hostname -i) -r gl-container-scanning-report.json -l clair.log -w clair-whitelist.yml ${CI_APPLICATION_REPOSITORY}:${CI_APPLICATION_TAG} || true
