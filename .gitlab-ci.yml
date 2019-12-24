@@ -15,7 +15,7 @@ services:
 # STAGES
 # =============================================================================
 
-stages: [ review, build, scanning, deploy, merge ]
+stages: [ review, reports, build, scanning, deploy, merge ]
 
 # =============================================================================
 # GLOBAL VARIABLES
@@ -38,24 +38,30 @@ variables:
 include:
 
   # Env: Config
-  - local: ".gitlab/ci/config/.gitlab-ci-base.yml"
-  - local: ".gitlab/ci/config/.gitlab-ci-lint.yml"
-  - local: ".gitlab/ci/config/.gitlab-ci-merge.yml"
+  - local: "pipeline/config/.gitlab-ci-base.yml"
+  - local: "pipeline/config/.gitlab-ci-lint.yml"
 
   # Env: Master
-  - local: ".gitlab/ci/master/.gitlab-ci-audit.yml"
-  - local: ".gitlab/ci/master/.gitlab-ci-build.yml"
-  - local: ".gitlab/ci/master/.gitlab-ci-scanning.yml"
+  - local: "pipeline/master/.gitlab-ci-audit.yml"
+  - local: "pipeline/master/.gitlab-ci-code-quality.yml"
+  - local: "pipeline/master/.gitlab-ci-build.yml"
+  - local: "pipeline/master/.gitlab-ci-scanning.yml"
+  - local: "pipeline/master/.gitlab-ci-deploy.yml"
 
   # Env: Stage
-  - local: ".gitlab/ci/stage/.gitlab-ci-audit.yml"
-  - local: ".gitlab/ci/stage/.gitlab-ci-build.yml"
-  - local: ".gitlab/ci/stage/.gitlab-ci-scanning.yml"
+  - local: "pipeline/stage/.gitlab-ci-audit.yml"
+  - local: "pipeline/stage/.gitlab-ci-code-quality.yml"
+  - local: "pipeline/stage/.gitlab-ci-build.yml"
+  - local: "pipeline/stage/.gitlab-ci-scanning.yml"
+  - local: "pipeline/stage/.gitlab-ci-deploy.yml"
 
   # Env: Develop
-  - local: ".gitlab/ci/develop/.gitlab-ci-audit.yml"
-  - local: ".gitlab/ci/develop/.gitlab-ci-build.yml"
-  - local: ".gitlab/ci/develop/.gitlab-ci-scanning.yml"
+  - local: "pipeline/develop/.gitlab-ci-audit.yml"
+  - local: "pipeline/develop/.gitlab-ci-code-quality.yml"
+  - local: "pipeline/develop/.gitlab-ci-build.yml"
+  - local: "pipeline/develop/.gitlab-ci-scanning.yml"
+  - local: "pipeline/develop/.gitlab-ci-deploy.yml"
 
   # Env: Merge
   - local: ".gitlab/ci/merge/.gitlab-ci-audit.yml"
+  - local: "pipeline/merge/.gitlab-ci-code-quality.yml"

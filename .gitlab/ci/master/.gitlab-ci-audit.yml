@@ -25,12 +25,12 @@
 # JOB AUDIT
 # =============================================================================
 
-# BACKEND
+# APP
 
-job:audit-backend-master:
+job:audit-app-master:
   <<: *base-build
   variables:
-    NS: backend
+    NS: app
     <<: *base-variables
   script:
     - ./scripts/verify.sh -f /var/log/lynis.log
@@ -38,49 +38,4 @@ job:audit-backend-master:
     refs:
       - master
     changes:
-      - "backend/Dockerfile"
-
-# DATABASE
-
-job:audit-database-master:
-  <<: *base-build
-  variables:
-    NS: database
-    <<: *base-variables
-  script:
-    - ./scripts/verify.sh -f /var/log/lynis.log
-  only:
-    refs:
-      - master
-    changes:
-      - "database/Dockerfile"
-
-# FLYWAY
-
-job:audit-flyway-master:
-  <<: *base-build
-  variables:
-    NS: flyway
-    <<: *base-variables
-  script:
-    - ./scripts/verify.sh -f /var/log/lynis.log
-  only:
-    refs:
-      - master
-    changes:
-      - "flyway/Dockerfile"
-
-# FRONTEND
-
-job:audit-frontend-master:
-  <<: *base-build
-  variables:
-    NS: frontend
-    <<: *base-variables
-  script:
-    - ./scripts/verify.sh -f /var/log/lynis.log
-  only:
-    refs:
-      - master
-    changes:
-      - "frontend/Dockerfile"
+      - "app/Dockerfile"
