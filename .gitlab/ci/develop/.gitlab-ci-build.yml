@@ -28,7 +28,6 @@
 # =============================================================================
 
 # APP
-
 job:build-app-develop:
   <<: *base-build
   extends: .changes-app

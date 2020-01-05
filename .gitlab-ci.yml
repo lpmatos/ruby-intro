@@ -15,7 +15,7 @@ services:
 # STAGES
 # =============================================================================
 
-stages: [ review, reports, build, scanning, deploy, merge ]
+stages: [ review, reports, build, scanning, merge ]
 
 # =============================================================================
 # GLOBAL VARIABLES
@@ -40,28 +40,26 @@ include:
   # Env: Config
   - local: "pipeline/config/.gitlab-ci-base.yml"
   - local: "pipeline/config/.gitlab-ci-lint.yml"
+  - local: "pipeline/config/.gitlab-ci-merge.yml"
 
   # Env: Master
   - local: "pipeline/master/.gitlab-ci-audit.yml"
   - local: "pipeline/master/.gitlab-ci-code-quality.yml"
   - local: "pipeline/master/.gitlab-ci-build.yml"
   - local: "pipeline/master/.gitlab-ci-scanning.yml"
-  - local: "pipeline/master/.gitlab-ci-deploy.yml"
 
   # Env: Stage
   - local: "pipeline/stage/.gitlab-ci-audit.yml"
   - local: "pipeline/stage/.gitlab-ci-code-quality.yml"
   - local: "pipeline/stage/.gitlab-ci-build.yml"
   - local: "pipeline/stage/.gitlab-ci-scanning.yml"
-  - local: "pipeline/stage/.gitlab-ci-deploy.yml"
 
   # Env: Develop
   - local: "pipeline/develop/.gitlab-ci-audit.yml"
   - local: "pipeline/develop/.gitlab-ci-code-quality.yml"
   - local: "pipeline/develop/.gitlab-ci-build.yml"
   - local: "pipeline/develop/.gitlab-ci-scanning.yml"
-  - local: "pipeline/develop/.gitlab-ci-deploy.yml"
 
   # Env: Merge
-  - local: ".gitlab/ci/merge/.gitlab-ci-audit.yml"
+  - local: "pipeline/merge/.gitlab-ci-audit.yml"
   - local: "pipeline/merge/.gitlab-ci-code-quality.yml"

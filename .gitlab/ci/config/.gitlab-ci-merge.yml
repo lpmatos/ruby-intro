@@ -29,6 +29,42 @@
       fi
 
 # =============================================================================
+# JOB MERGE
+# =============================================================================
+
+# STAGE
+job:merge-stage:
+  <<: *base-build
+  variables:
+    <<: *base-variables
+    TARGET_BRANCH: master
+    SOURCE_BRANCH: stage
+    DESCRIPTION: "Job ${CI_JOB_NAME} - Marge Request Stage to Master"
+  script:
+    - gitlab_auto_mr --private-token ${PRIVATE_TOKEN} --target-branch ${TARGET_BRANCH} --source-branch ${SOURCE_BRANCH} --project-id ${PROJECT_ID} --user-id ${USER_ID} --description "${DESCRIPTION}" --commit-prefix "${COMMIT_PREFIX}"
+  environment:
+    name: stage
+  only:
+    refs:
+      - stage
+
+# DEVELOP
+job:merge-develop:
+  <<: *base-build
+  variables:
+    <<: *base-variables
+    TARGET_BRANCH: stage
+    SOURCE_BRANCH: develop
+    DESCRIPTION: "Job ${CI_JOB_NAME} - Marge Request Develop to Stage"
+  script:
+    - gitlab_auto_mr --private-token ${PRIVATE_TOKEN} --target-branch ${TARGET_BRANCH} --source-branch ${SOURCE_BRANCH} --project-id ${PROJECT_ID} --user-id ${USER_ID} --description "${DESCRIPTION}" --commit-prefix "${COMMIT_PREFIX}"
+  environment:
+    name: develop
+  only:
+    refs:
+      - develop
+
+# =============================================================================
 # JOB CHECK MERGE
 # =============================================================================
 
@@ -46,42 +82,4 @@ job:check-merge:
     - ./scripts/lint-conflicts.sh
   only:
     refs:
-      - stage
-
-# =============================================================================
-# JOB MERGE
-# =============================================================================
-
-# STAGE
-
-job:merge-stage:
-  <<: *base-build
-  variables:
-    <<: *base-variables
-    TARGET_BRANCH: master
-    SOURCE_BRANCH: stage
-    DESCRIPTION: "Job ${CI_JOB_NAME} - Marge Request to Master"
-  script:
-    - gitlab_auto_mr --private-token ${PRIVATE_TOKEN} --target-branch ${TARGET_BRANCH} --source-branch ${SOURCE_BRANCH} --project-id ${PROJECT_ID} --user-id ${USER_ID} --description "${DESCRIPTION}" --commit-prefix "${COMMIT_PREFIX}"
-  environment:
-    name: stage
-  only:
-    refs:
-      - stage
-
-# DEVELOP
-
-job:merge-develop:
-  <<: *base-build
-  variables:
-    <<: *base-variables
-    TARGET_BRANCH: stage
-    SOURCE_BRANCH: develop
-    DESCRIPTION: "Job ${CI_JOB_NAME} - Marge Request to Stage"
-  script:
-    - gitlab_auto_mr --private-token ${PRIVATE_TOKEN} --target-branch ${TARGET_BRANCH} --source-branch ${SOURCE_BRANCH} --project-id ${PROJECT_ID} --user-id ${USER_ID} --description "${DESCRIPTION}" --commit-prefix "${COMMIT_PREFIX}"
-  environment:
-    name: develop
-  only:
-    refs:
-      - develop
+      - merge_requests

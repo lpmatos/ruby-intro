@@ -94,7 +94,7 @@ function ProgramName(){
     # DECLARING A LOCAL VARIABLE CATCHING THE SCRIPT NAME
     local PROGNAME=$(basename ${0})
     # DISPLAYING A MESSAGE
-    echo -e "\n${CYAN}Script $PROGNAME:${YELLOW} By Lucca Pessoa."
+    echo -e "\n${CYAN}Script $PROGNAME:${YELLOW} By Cloud Team."
 }
 
 # =============================================================================
@@ -220,7 +220,7 @@ then
     Help
 else
     # IF WE HAVE ARGUMENTS...
-    while test $# -gt 0; do
+    while test ${#} -gt 0; do
            case "${1}" in
                 -h)
                     shift

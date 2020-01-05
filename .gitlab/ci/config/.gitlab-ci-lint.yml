@@ -3,7 +3,6 @@
 # =============================================================================
 
 # YML
-
 job:lint-yml:
   extends: .changes-lint-yml
   image: sdesbure/yamllint:latest
@@ -21,7 +20,6 @@ job:lint-yml:
     expire_in: "15 day"
 
 # DOCS
-
 job:lint-docs:
   extends: .changes-lint-docs
   image: registry.gitlab.com/gitlab-org/gitlab-build-images:gitlab-docs-lint

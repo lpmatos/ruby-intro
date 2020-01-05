@@ -41,7 +41,6 @@
 # =============================================================================
 
 # APP
-
 job:scanning-app-stage:
   <<: *base-build
   extends: .changes-app

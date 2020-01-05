@@ -28,8 +28,7 @@
 # =============================================================================
 
 # APP
-
-job:code-quality-app-merge-request:
+job:code-quality-app-merge-requests:
   extends: .changes-app
   <<: *base-build
   script:

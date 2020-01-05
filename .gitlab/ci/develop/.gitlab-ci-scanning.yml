@@ -41,7 +41,6 @@
 # =============================================================================
 
 # APP
-
 job:scanning-app-develop:
   <<: *base-build
   extends: .changes-app

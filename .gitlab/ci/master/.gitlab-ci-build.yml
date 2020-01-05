@@ -7,6 +7,7 @@
   GIT_STRATEGY: fetch
   BUILD_IMAGE_TAG: ${CI_REGISTRY_IMAGE}/${NS}:${BRANCH}
   BUILD_IMAGE_TAG_HASH: ${CI_REGISTRY_IMAGE}/${NS}:${CI_COMMIT_SHA}
+  BUILD_IMAGE_TAG_LATEST: ${CI_REGISTRY_IMAGE}/${NS}:latest
   BUILD_DOCKERFILE: ${NS}/Dockerfile
   BUILD_CONTEXT: ${NS}/
 
@@ -28,7 +29,6 @@
 # =============================================================================
 
 # APP
-
 job:build-app-master:
   <<: *base-build
   extends: .changes-app

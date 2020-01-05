@@ -24,7 +24,6 @@
 # =============================================================================
 
 # APP
-
 .changes-app:
   <<: *default-retry
   only:
@@ -34,9 +33,21 @@
       - "app/code/**/*"
       - "app/Dockerfile"
       - "app/CHANGELOG.md"
+      - "CHANGELOG.md"
+
+# MERGE
+.changes-merge:
+  <<: *default-retry
+  only:
+    changes:
+      - "app/*"
+      - "app/**/*"
+      - "app/code/**/*"
+      - "app/Dockerfile"
+      - "app/CHANGELOG.md"
+      - "CHANGELOG.md"
 
 # LINT YML
-
 .changes-lint-yml:
   <<: *default-retry
   only:
@@ -46,16 +57,13 @@
     refs:
       - master
       - merge_requests
-      - tags
 
 # LINT DOCS
-
 .changes-lint-docs:
   <<: *default-retry
   only:
     changes:
       - "docs/*"
-      - "docs/**/*"
       - "CHANGELOG.md"
   except:
     - master

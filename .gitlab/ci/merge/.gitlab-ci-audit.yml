@@ -1,4 +1,12 @@
 # =============================================================================
+# LOCAL VARIABLES
+# =============================================================================
+
+.base-variables: &base-variables
+  PATH_DOCKERFILE: ${NS}/Dockerfile
+  GIT_STRATEGY: fetch
+
+# =============================================================================
 # TEMPLATE BASE AUDIT
 # =============================================================================
 
@@ -11,24 +19,23 @@
     - apk add --update --no-cache git bash
     - git clone --depth 1 https://github.com/CISOfy/lynis -b master
     - chmod a+x ./scripts/verify.sh && cd ./lynis
+    - ./lynis audit dockerfile ../${PATH_DOCKERFILE} --verbose && cd ..
 
 # =============================================================================
 # JOB AUDIT
 # =============================================================================
 
 # APP
-
 job:audit-app-merge-request:
   <<: *base-build
   variables:
     NS: app
-    PATH_DOCKERFILE_APP: ${NS}/Dockerfile
-    GIT_STRATEGY: fetch
+    <<: *base-variables
   script:
-    - ./lynis audit dockerfile ../${PATH_DOCKERFILE_APP} --verbose && cd ..
     - ./scripts/verify.sh -f /var/log/lynis.log
   only:
     refs:
       - merge_requests
     changes:
       - "app/Dockerfile"
+

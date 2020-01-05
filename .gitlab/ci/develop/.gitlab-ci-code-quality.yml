@@ -28,7 +28,6 @@
 # =============================================================================
 
 # APP
-
 job:code-quality-app-develop:
   extends: .changes-app
   <<: *base-build

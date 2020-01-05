@@ -1,7 +1,7 @@
-Ruby - Study
+Ruby Programming Language
 ============
 
-Study language - **Ruby**.
+Just a repository used to store **Ruby** ​​language study code.
 
 ## Copyright (c)
 
@@ -19,17 +19,18 @@ This will give access on your **local machine** to this project.
 
 ## Organization
 
-* **.gitlab** is the directory where the **CI/CD** templates is located.
-* **/app** is the directory where the **app** is located and where the **Dockerfile** is called from **docker-compose**.
-* **/docs** is the directory where is the **project documentation**.
-* **/scripts** is the directory where are all the **scripts** used in **CI/CD** or in other contexts.
+* **/.gitlab** is the directory where we have all templates used in **CI/CD** process.
+* **/app** is the directory where the **code** files is located and where the **Dockerfile** is called from **docker-compose**.
+* **/docs** is the directory where are all documentation of this project.
+* **/scripts** is the directory where we have all the **scripts** used in **CI/CD** process and in others contexts.
+* **docker-compose.yml** is the **Docker** container orchestrator.
 * **README.md** is an optional file. A human-readable **README** file.
-* **.gitlab-ci.yml** is the file that use the templates find in **pipeline** folder.
+* **.gitlab-ci.yml** is the file that uses the templates find in **pipeline** folder.
 * The files found in the project root are support files to **CI/CD** process and others contexts.
 
 ## Description
 
-Just a **Repository** for study.
+Just a **Repository** to study **Ruby**.
 
 ## Pre-Requisites
 
@@ -50,6 +51,20 @@ ruby  |  **Ruby** application to run some **Scripts** |  [Dockerfile](app/Docker
 **Components** | **Description** | **Tool**
 :---: | :---: | :---:
 **Application** | Study **Code** | **Ruby** ([ruby](https://www.ruby-lang.org/pt/))
+
+## Environment variables
+
+### Container
+
+```
+CONTAINER_NAME
+```
+
+### Path
+
+```
+PATH_DOCKERFILE
+```
 
 ## Docker
 

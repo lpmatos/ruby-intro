@@ -93,7 +93,7 @@ function ProgramName(){
     # DECLARING A LOCAL VARIABLE CATCHING THE SCRIPT NAME
     local PROGNAME=$(basename ${0})
     # DISPLAYING A MESSAGE
-    echo -e "\n${CYAN}Script $PROGNAME: ${YELLOW} By Lucca Pessoa."
+    echo -e "\n${CYAN}Script $PROGNAME: ${YELLOW} By Cloud Team."
 }
 
 # =============================================================================
@@ -169,8 +169,10 @@ function Pull(){
 function Push(){
     # CHECKING REGISTRY CREDENTIALS
     RegistryCredentials || return ${SUCESS}
+    # GETTING VALUE OF JOB NAME
+    local JOB=$(echo ${CI_JOB_NAME} | grep "master")
     # CHECKING MASTER BRANCH
-    if [ ${CI_JOB_NAME} == "job:build-app-master" ]
+    if [ ${JOB} ]
     then
         # CALL CHECKING IMAGE TAG LATEST
         CheckImageTagLatest
@@ -198,9 +200,11 @@ function Build(){
     # DISPLAY A MESSAGE
     echo -e "\n${NC}Building image: ${BUILD_IMAGE_TAG_HASH}..."
     # BUILD THE DOCKER IMAGE
-    docker build --cache-from "${BUILD_IMAGE_TAG_HASH}" -t "${BUILD_IMAGE_TAG_HASH}" -f "${BUILD_DOCKERFILE}" "${BUILD_CONTEXT}"
+    docker build --cache-from "${BUILD_IMAGE_TAG_HASH}" --build-arg BRANCH=${BRANCH} -t "${BUILD_IMAGE_TAG_HASH}" -f "${BUILD_DOCKERFILE}" "${BUILD_CONTEXT}"
+    # GETTING VALUE OF JOB NAME
+    local JOB=$(echo ${CI_JOB_NAME} | grep "master")
     # CHECKING MASTER BRANCH
-    if [ ${CI_JOB_NAME} == "job:build-app-master" ]
+    if [ ${JOB} ]
     then
         # CALL CHECKING IMAGE TAG LATEST
         CheckImageTagLatest
