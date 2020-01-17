@@ -15,8 +15,8 @@ end
 
 if __FILE__ == $0
     # QUANTIDADE DE EXECUÇÕES
-    quantidade = (gets.strip).to_i
-    for elemento in 0..quantidade do
+    quantidade = (gets.strip).to_i + 1
+    for elemento in 0..quantidade
         first, last = gets.strip.split.map(&:to_i)
         puts first
         puts last
