@@ -6,9 +6,9 @@ def do_stuff(first, last)
         check_one = 2 * (last ** last)
         check_two = (first * last) ** 2
         if calculo >= check_one and calculo >= check_two
-            return True
+            return true
         else
-            return False
+            return false
         end
     end
 end
