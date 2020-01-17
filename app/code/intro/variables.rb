@@ -16,4 +16,7 @@ if __FILE__ == $0
     puts valor
 
     puts idade
+
+    # Por convenção o Snake Case é o padrão utilizado para dar nome as variáveis
+    
 end
