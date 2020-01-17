@@ -23,8 +23,31 @@ def case_one(valeu)
     end
 end
 
+def case_two(value)
+    if value.kind_of? String
+        case value
+            when "A"
+                puts "Hooray!"
+            when "B"
+                puts "OK job"
+            when "C"
+                puts "You can do better"
+            when "D"
+                puts "You failed!"
+            else
+                puts "Alternative grading system, eh?"
+        end
+    else
+        puts "Saindo..."
+        exit
+    end
+end
+
 if __FILE__ == $0
     puts "Digite um valor"
     valor = (gets.strip).to_i
     case_one(valor)
+    puts "Digite A, B, C ou D..."
+    letra = ((gets.strip).to_s).upcase
+    case_two(letra)
 end
