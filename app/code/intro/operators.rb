@@ -35,4 +35,7 @@ if __FILE__ == $0
     puts 2 <= 2
     puts 2 >= 2
 
+    # Exemple
+    puts "\n#{true and 0 && !nil and 3 > 2}"
+
 end
