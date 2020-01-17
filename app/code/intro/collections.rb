@@ -64,7 +64,7 @@ if __FILE__ == $0
     nomes = nomes.sort
     puts "\n#{nomes}"
 
-    nomes = nomes.sort_by{ |values| value.length }
+    nomes = nomes.sort_by{ |value| value.length }
     puts "\n#{nomes}"
-    
+
 end
