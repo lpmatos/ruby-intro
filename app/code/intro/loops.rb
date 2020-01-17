@@ -18,8 +18,8 @@ end
 puts "\nEach Only line\n"
 (1..5).each { |value| puts "Iteration - #{value}" }
 
+puts "\nHash\n"
 hash = {nome: "Lucca", idade: 20}
-
 hash.each do |key, valeu|
-    puts "#{key} os #{valeu}"
+    puts "The #{key} is #{valeu}"
 end
