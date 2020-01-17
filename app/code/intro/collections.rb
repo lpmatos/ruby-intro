@@ -65,6 +65,6 @@ if __FILE__ == $0
     puts "\n#{nomes}"
 
     nomes = nomes.sort_by{ |value| value.length }
-    puts "\n#{nomes}"
+    puts "\n#{nomes.reverse}"
 
 end
