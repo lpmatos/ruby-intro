@@ -5,7 +5,7 @@ def case_one(valeu)
         if valeu > 0 and valeu <= 100
             case valeu
                 when 1..30
-                    puts "0-30"
+                    puts "1-30"
                 when 30..60
                     puts "31-60"
                 when 60..80
