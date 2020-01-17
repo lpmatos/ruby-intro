@@ -5,9 +5,9 @@ if __FILE__ == $0
     # ARRAY
 
     array = [1, 2, 3, 4]
-    puts "#{array}"
+    puts "\n#{array}"
     other = [1, "hello", true]
-    puts "#{other}"
+    puts "\n#{other}"
     puts "#{array[0]}"
     puts "#{array[3]}"
     puts "#{array[5]}"
@@ -20,19 +20,19 @@ if __FILE__ == $0
     puts "#{array.first}"
     puts "#{array.last}"
 
-    puts "#{array.include?("Lucca")}"
+    puts "\n#{array.include?("Lucca")}"
     puts "#{array.include?(2)}"
 
     # HASH
 
     hash = {"color" => "blue", "number" => 20}
-    puts "#{hash.keys}"
+    puts "\n#{hash.keys}"
     puts "#{hash.values}" 
     puts "#{hash["color"]}"
     puts "#{hash["value"]}"
 
     novo = { nome: "lucca", idade: 20}
-    puts "#{novo.keys}"
+    puts "\n#{novo.keys}"
     puts "#{novo.values}"
 
     # Arrays e hashs são enumerates...
@@ -42,6 +42,11 @@ if __FILE__ == $0
     condition = nomes.any?{ |value| value.length >= 10 }
     todos = nomes.all?{ |value| value.length > 4 }
 
-    puts "#{condition}"
+    puts "\n#{condition}"
     puts "#{todos}"
+
+    values = (0..10).to_a
+    puts "\n#{values}"
+    calculo = values.map{ |value| value * value }
+    puts "#{calculo}"
 end
