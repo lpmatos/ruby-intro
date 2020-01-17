@@ -34,4 +34,14 @@ if __FILE__ == $0
     novo = { nome: "lucca", idade: 20}
     puts "#{novo.keys}"
     puts "#{novo.values}"
+
+    # Arrays e hashs são enumerates...
+
+    nomes = %w(Lucca Vitor Pedro Arthur Carla Eduarda)
+
+    condition = nomes.any?{ |value| value.length >= 10 }
+    todos = nomes.all?{ |value| value.length > 4 }
+
+    puts "#{condition}"
+    puts "#{todos}"
 end
