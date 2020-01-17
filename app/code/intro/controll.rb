@@ -1,7 +1,7 @@
 #!/usr/bin/ruby
 
 def if_statement()
-    if value > 0:
+    if value > 0
         if value.even?
             puts "Par"
         else
