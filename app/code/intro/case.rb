@@ -12,6 +12,7 @@ def case_one(valeu)
                     puts "60-79"
                 else
                     puts "80-100" 
+            end
         else
             puts "Saindo..."
             exit
