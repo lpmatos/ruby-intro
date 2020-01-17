@@ -1,9 +1,9 @@
 #!/usr/bin/ruby
 
 def case_one(valeu)
-    if value.kind_of? Integer
-        if value > 0 and value <= 100
-            case value
+    if valeu.kind_of? Integer
+        if valeu > 0 and valeu <= 100
+            case valeu
                 when 0..30
                     puts "0-29"
                 when 30..60
