@@ -49,4 +49,6 @@ if __FILE__ == $0
     puts "\n#{values}"
     calculo = values.map{ |value| value * value }
     puts "#{calculo}"
+    other = nomes.collect { |value| value.length }
+    puts "#{other}"
 end
