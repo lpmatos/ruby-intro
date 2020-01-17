@@ -7,7 +7,7 @@ def function(value)
 end
 
 if __FILE__ == $0
-    quantidade = (gets.strip).to_s
+    quantidade = (gets.strip).to_i
     for elemento in 0..quantidade
         nome = (gets.strip).to_s
         function(nome)
