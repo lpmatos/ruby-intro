@@ -55,8 +55,8 @@ if __FILE__ == $0
     novo = (1..101).count{ |value| value % 2 == 0}
     puts "\n#{novo}"
 
-    pares = (1, 101).find_all{ |value| value % 2 == 0}
-    others = (1, 101).select{ |value| value.even? }
+    pares = (1..101).find_all{ |value| value % 2 == 0}
+    others = (1..101).select{ |value| value.even? }
 
     puts "\n#{pares}"
     puts "#{pares}"
