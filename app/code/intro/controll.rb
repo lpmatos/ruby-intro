@@ -1,7 +1,7 @@
 #!/usr/bin/ruby
 
-def if_statement(valor)
-    if valor.kind_of? Integer
+def if_statement(value)
+    if value.kind_of? Integer
         if value > 0
             if value.even?
                 puts "Par"
