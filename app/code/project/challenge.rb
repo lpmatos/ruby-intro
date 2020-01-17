@@ -1,10 +1,8 @@
 #!/usr/bin/ruby
 
-def core(first, last)
-    if first.kind_of? Integer and last.kind_of? Integer
-        calculo = first ** last
-        check_one = 2 * (last ** last)
-        check_two = (a * b) ** 2
+def do_stuff(first, last)
+    if first.kind_of? Integer && last.kind_of? Integer
+        calculo, check_one, check_two = first ** last, 2 * (last ** last), (first * last) ** 2
         if calculo >= check_one && calculo >= check_two
             return True
         else
@@ -14,12 +12,11 @@ def core(first, last)
 end
 
 if __FILE__ == $0
-    # QUANTIDADE DE EXECUÇÕES
     quantidade = (gets.strip).to_i + 1
     for elemento in 0..quantidade
-        first, last = gets.strip.split.map(&:to_i)
+        first, last = ((gets.strip).split).map {|value| value.to_i}
         puts first
         puts last
-        puts core(first, last)
+        puts do_stuff(first, last)
     end
 end
