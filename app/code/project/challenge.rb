@@ -15,7 +15,7 @@ end
 
 if __FILE__ == $0
     quantidade = (gets.strip).to_i
-    for elemento in 0..quantidade do
+    for elemento in 0..quantidade
         first, last = ((gets.strip).split).map(&:to_i)
         puts do_stuff(first, last)
     end
