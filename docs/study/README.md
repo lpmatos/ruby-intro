@@ -84,3 +84,16 @@ Na maioria das linguagens ele aparece com o símbolo ```!=```.
 * O processo de extrair uma função e invocá-la é o processo de extrair um trecho de código, de isolar um comportamento.
 
 * Quando executamos uma função, por padrão, todas as variáveis executadas dentro dela não são acessadas pelo contexto de fora.
+
+## Sobre o Ruby
+
+**Ruby** é uma linguagem de programação dinâmica, orientada a objetos e de uso geral. Seu foco está na produtividade do programador em vez da otimização da máquina.
+
+Essa linguagem possui algumas características:
+
+* Tudo é um Objeto, assim como em **Python**.
+* Tudo é verdade (exceto falso e nulo - nil).
+* Digitação dinâmica e Duck Typing.
+* Edite qualquer classe ou método em qualquer lugar.
+
+O **Ruby** foi lançado em 1995, mas tornou-se popular uma década depois com o lançamento do **Ruby on Rails**, uma estrutura de aplicativos Web escrita em **Ruby**.
