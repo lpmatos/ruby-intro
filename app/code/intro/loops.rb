@@ -1,9 +1,12 @@
-for elemento 1..5
+puts "\nLoops\n"
+
+for elemento in 1..5
     puts "Valor - #{elemento}"
 end
 
-contador = 10
+puts "\nWhile\n"
 
+contador = 10
 while contador != 20
     puts "Iteration - #{contador}"
     contador += 1
