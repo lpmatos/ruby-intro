@@ -4,13 +4,17 @@ def for_each(array)
     end
 end
    
-def show(value)
+def show
     puts "Iremos printar o valor: "
-    yield value
+    yield
 end
 
 for_each [1,2,3,4,5] do |valor|
     puts "#{valor}"
 end
 
-show puts 10
+show do |value|
+    puts "#{10}"
+end
+
+show { puts "#{10}" }
