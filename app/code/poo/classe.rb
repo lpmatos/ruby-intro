@@ -50,8 +50,8 @@ end
 
 # Instantiate a class
 
-jim = Human.new("Jim Halpert")    
-dwight = Human.new("Dwight K. Schrute")
+jim = Humano.new("Jim Halpert")    
+dwight = Humano.new("Dwight K. Schrute")
 
 puts jim.species
 puts jim.name
