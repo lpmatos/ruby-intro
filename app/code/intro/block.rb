@@ -9,3 +9,5 @@ end
 take_block do
     puts "i am block"   
 end 
+
+take_block { puts "i am block" } 
