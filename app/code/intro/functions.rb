@@ -38,6 +38,7 @@ if __FILE__ == $0
 
     surround { puts "Opa" }
 
+    puts "\nLista:\n"
     guests("lucca", 1, 2, 3, "pessoa")
-    
+
 end

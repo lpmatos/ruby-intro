@@ -97,3 +97,25 @@ Essa linguagem possui algumas características:
 * Edite qualquer classe ou método em qualquer lugar.
 
 O **Ruby** foi lançado em 1995, mas tornou-se popular uma década depois com o lançamento do **Ruby on Rails**, uma estrutura de aplicativos Web escrita em **Ruby**.
+
+## O que são blocos
+
+Em **Ruby** existem várias definições diferentes de coisas bem semelhantes. **Blocos**, **Lambda** e **Procs** são referenciados de maneira geral como **closure**.
+
+Além de dar nome a uma linguagem, **closure** é uma funcionalidade que permite escrever um padaço de código que pode ser:
+
+* Utilizado como um valor (podendo ser atribuído, passado como parâmetro, etc).
+* Pode ser executado em qualquer lugar.
+* Referenciam variáveis no contexto onde são criados.
+
+Blocos em **Ruby** são pedaços de código que estão entre **do end** ou entre **{}**.
+
+```ruby
+array.each do |e|
+  puts e
+end
+```
+
+O código **puts e** que está entre o **do end** é um bloco que foi passado como pâmetro para o each.
+
+O **yield** para a execução do método e passa o controle para o bloco que foi passado como parâmetro pelo método.
