@@ -23,3 +23,5 @@ hash = {nome: "Lucca", idade: 20}
 hash.each do |key, valeu|
     puts "The #{key} is #{valeu}"
 end
+
+# break if
