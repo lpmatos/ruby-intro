@@ -5,19 +5,13 @@ if __FILE__ == $0
     puts a, b, c
     a += 1
     puts a
-
     valor = gets.strip
-
     if valor == "lucca"
         person_name = "Pessoa"
         other = "Value"
     end
-
     name = person_name || "Anonymous"
-
     puts name
-
     other ||= "Anonymous"
-
     puts other
 end
