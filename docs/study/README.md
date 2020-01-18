@@ -95,6 +95,7 @@ Essa linguagem possui algumas características:
 * Tudo é verdade (exceto falso e nulo - nil).
 * Digitação dinâmica e Duck Typing.
 * Edite qualquer classe ou método em qualquer lugar.
+* A linguagem principal do ruby ​​e a biblioteca padrão vêm com um grande número de métodos úteis.
 
 O **Ruby** foi lançado em 1995, mas tornou-se popular uma década depois com o lançamento do **Ruby on Rails**, uma estrutura de aplicativos Web escrita em **Ruby**.
 
@@ -119,3 +120,19 @@ end
 O código **puts e** que está entre o **do end** é um bloco que foi passado como pâmetro para o each.
 
 O **yield** para a execução do método e passa o controle para o bloco que foi passado como parâmetro pelo método.
+
+## Review
+
+* Todos os programas consistem em instruções para um computador seguir. Por exemplo, um programa pode dizer ao computador para exibir uma mensagem quando um usuário clica em um botão.
+
+* Às vezes, queremos que o computador encontre uma solução para um problema, como encontrar a soma de uma lista de números ou a rota mais curta entre duas cidades. Os programadores escrevem um conjunto de instruções, conhecido como algoritmo , que o computador deve seguir para resolver esses problemas.
+
+* As estruturas de controle são usadas para controlar o fluxo de um programa, para que ele execute o código de acordo com certas condições. Por exemplo, uma instrução if executará o código uma vez se uma condição for verdadeira (e, caso contrário, a ignorará), e um loop executará o código repetidamente enquanto a condição for verdadeira.
+
+* Variáveis são usadas para armazenar valores na programação, como 42 ou "potato".
+
+* Os métodos são usados ​​para executar as mesmas instruções várias vezes sem reescrever o código em locais diferentes. Outro código pode simplesmente chamar (ou "invocar") o método e o código do método será executado. Parâmetros são variáveis ​​que um método utiliza para fazer algo.
+
+* Objetos e classes - Objetos na programação são modelados com objetos no mundo real. Um objeto contém dados (armazenados em variáveis) e métodos para fazer as coisas. Classes são modelos para criar objetos.
+
+* A herança permite que classes de código compartilhem métodos e variáveis ​​entre si.
