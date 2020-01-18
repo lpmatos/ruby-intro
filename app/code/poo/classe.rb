@@ -54,14 +54,16 @@ jim = Humano.new("Jim Halpert")
 dwight = Humano.new("Dwight K. Schrute")
 
 puts jim.species
-puts jim.name
+puts jim.nome
+puts jim.idade
 
-jim.name = "Jim Halpert II"
+jim.nome = "Jim Halpert II"
 
-puts jim.name
+puts jim.nome
 
 puts dwight.species
-puts dwight.name
+puts dwight.nome
+puts dwight.idade
 
 # Variable's scopes are defined by the way we name them.
 # Variables that start with $ have global scope
