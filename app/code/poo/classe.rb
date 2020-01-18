@@ -70,14 +70,6 @@ puts dwight.idade
 $var = "I'm a global var"
 defined? $var #=> "global-variable"
 
-# Variables that start with @ have instance scope
-@var = "I'm an instance var"
-defined? @var #=> "instance-variable"
-
-# Variables that start with @@ have class scope
-@@var = "I'm a class var"
-defined? @@var #=> "class variable"
-
 # Variables that start with a capital letter are constants
 Var = "I'm a constant"
 defined? Var #=> "constant"
