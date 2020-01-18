@@ -28,6 +28,20 @@ class Humano
         @idade = idade
     end
 
+    # Ruby has a one-line shortcut for creating a getter and setter:
+    attr_accessor :nome
+    attr_accessor :idade
+
+    # Getter/setter methods can also be created individually like this
+    attr_reader :nome
+    attr_writer :nome
+    attr_reader :idade
+    attr_writer :idade
+
+    def self.say(msg)
+        puts "#{msg}"
+    end
+
     def species
         @@species
     end
