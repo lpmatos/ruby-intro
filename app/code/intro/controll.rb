@@ -3,7 +3,7 @@
 def if_statement(value)
     if value.kind_of? Integer
         if value > 0
-            if value.even?
+            if value.even? #odd?
                 puts "Par"
             else
                 puts "Impar"

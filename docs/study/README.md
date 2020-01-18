@@ -136,3 +136,7 @@ O **yield** para a execução do método e passa o controle para o bloco que foi
 * Objetos e classes - Objetos na programação são modelados com objetos no mundo real. Um objeto contém dados (armazenados em variáveis) e métodos para fazer as coisas. Classes são modelos para criar objetos.
 
 * A herança permite que classes de código compartilhem métodos e variáveis ​​entre si.
+
+* O interpretador do ruby é o irb.
+
+* Em ruby podemo descobrir todos os metódos de um objeto utilizando o método methods.
