@@ -1,4 +1,4 @@
- #!/usr/bin/env ruby
+ #!/usr/bin/env ruby.
 
 # O comando puts exibe uma mensagem na tela.
 
