@@ -22,18 +22,18 @@ frase = "   Eu te amo muito   "
 puts "Frase sem strip #{frase}"
 puts "Frase com strip #{frase.strip}"
 
-# Broken the string and create a array
+# Broken the string and create a array.
 lista = other.split("")
 lista.each { |i| puts "#{i}" }
 
-# Check include
+# Check include.
 puts "#{other.include? "Pessoa"}"
 puts "#{other.include? "Augusto"}"
 
-# Index
+# Index.
 puts other[0..10]
 puts other[-1]
 puts other.index("M")
 
-# Reverse
+# Reverse.
 puts other.reverse
