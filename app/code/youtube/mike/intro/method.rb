@@ -1,4 +1,4 @@
-def say_hello(value)
+def say_hello(value="Good")
     puts "Hello user #{value}!"
 end
 
