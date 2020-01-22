@@ -1,4 +1,4 @@
-# Hash is a key-value pair structure
+# Hash is a key-value pair structure.
 
 dicionario = {
     "Bahia" => "BA",
