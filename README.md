@@ -1,7 +1,7 @@
 Ruby Programming Language
 ============
 
-Just a repository used to store **Ruby** ​​language study code.
+Just a repository to build some **Ruby** Scripts and Study this language
 
 ## Copyright (c)
 
