@@ -1,5 +1,7 @@
  #!/usr/bin/env ruby
 
+#  A string is a sequence of characters inside quotes.
+
 # Concanetação de Strings em Ruby
 
 puts "Aqui vamos ensinar como concatenar strings em Ruby."
